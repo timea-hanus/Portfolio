@@ -11,19 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		location.reload();
 	});
 
-    let index = 0;
 
-	function updateCarousel() {
-		contentPanel.style.transform = `translateX(-${index * 100}%)`;
-	}
-
-	function scrollToTottiText() {
-		const tottiTextPosition = tottiText.getBoundingClientRect().top + window.pageYOffset;
-		window.scrollTo({
-			top: tottiTextPosition,
-			behavior: 'auto'
-		});
-	}
 
 	window.addEventListener('scroll', function () {
 		const scrollY = window.scrollY;
@@ -40,28 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
-	const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
-	
-    rightArrow.addEventListener('click', function () {
-        if (index < contents.length - 1) {
-            index++;
-        } else {
-            index = 0;
-        }
-        updateCarousel();
-        scrollToTottiText();
-    });
-
-    leftArrow.addEventListener('click', function () {
-        if (index > 0) {
-            index--;
-        } else {
-            index = contents.length - 1;
-        }
-        updateCarousel();
-        scrollToTottiText();
-    });
 
     const firefly = document.querySelector('.firefly');
 
